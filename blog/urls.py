@@ -16,11 +16,16 @@ Including another URLconf
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import path
+from django.contrib import admin
+from blog.models import *
 
 def home_page(request):
-    response = render(request, 'home.html')
+    articles = Article.objects.filter(draft = False).order_by('-published_date')
+    context = {'yael':articles}
+    response = render(request, 'home.html', context)
     return HttpResponse(response)
 
 urlpatterns = [
-    path('home/', home_page)
+    path('home/', home_page),
+    path('admin/', admin.site.urls)
 ]

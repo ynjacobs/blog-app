@@ -1,16 +1,25 @@
 <h1>This is  a blog page</h1>
 
-<h2>Today is May 23</h2>
 
-<ul>
-    <p><li></li>what is a client?</li>  A client is what sends requests to a server, for example a browser</p>
 
-  <p><li>what is a server?</li> A web server is what responds to the clients request </p>
+<!-- <ul>
+    >what is a client? A client is what sends requests to a server, for example a browser
 
-    <p><li>what is an HTTP request?</li> An http request is a protocol and tells the server and client how to behave</p>
+  what is a server? A web server is what responds to the clients request 
 
-    <p><li>what is an HTTP response?</li> A response is given in a code to say what the server did with the client request, ex. 404 means request wasn't found</p>
+    what is an HTTP request? An http request is a protocol and tells the server and client how to behave
 
-    <p><li>what is Django and why do we use it?</li> Django is a web framework and it's used to help create web apps</p>
+    what is an HTTP response? A response is given in a code to say what the server did with the client request, ex. 404 means request wasn't found
 
-</ul>
+    what is Django and why do we use it? Django is a web framework and it's used to help create web apps
+
+</ul> -->
+{% for article in yael %}
+        
+               <p>
+                  <h2>{{ article.title }}</h2>
+                  {{ article.body }}
+    
+               </p>
+        
+        {% endfor %}
