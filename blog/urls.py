@@ -13,19 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.urls import path
 from django.contrib import admin
-from blog.models import *
+from django.urls import path
+from blog.views import *
 
-def home_page(request):
-    articles = Article.objects.filter(draft = False).order_by('-published_date')
-    context = {'yael':articles}
-    response = render(request, 'home.html', context)
-    return HttpResponse(response)
+
 
 urlpatterns = [
     path('home/', home_page),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('home/<int:id>', page_details, name='post_message'),
 ]
