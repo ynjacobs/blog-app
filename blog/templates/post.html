@@ -5,5 +5,44 @@
 <h2>By {{post.author}}</h2>
 <h2> {{ post.published_date }}</h2>
 
-{% endblock %}
+<ul>
+    {% for comment in post.comments.all %}
+        <li>
+            <p>{{ comment.name }}</p>
+            <p>{{ comment.message }}</p>
+        </li>
+    {% endfor %}
+</ul>
 
+<form action="{% url 'create_comment' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="article" value="{{ post.pk }}">
+
+    <div class="field" class="field">
+
+        <label for="comment_title">title</label>
+        <input id="comment_title" type="text" name="comment_title">
+
+        <label for="comment_message">message</label>
+        <textarea id="comment_message" name="comment_message"></textarea>
+    </div>
+
+    <div class="field">
+
+        <button type="submit">
+            <span>create comment</span>
+        </button>
+    </div>
+</form>
+
+
+<ul>
+    {% for comment in article.comments.all %}
+
+    <li>{{ comment.message }}</li>
+
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

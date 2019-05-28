@@ -18,7 +18,7 @@
 </ul> -->
 {% for article in articles %}
 
-  <a href="{% url 'post_message' id=article.pk %}">
+  <a href="{% url 'post_details' id=article.pk %}">
     <p>
       <h2>{{ article.title }}</h2>
       {{ article.body }}
