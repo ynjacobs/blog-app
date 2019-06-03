@@ -16,7 +16,7 @@
 
 <form action="{% url 'create_comment' %}" method="post">
     {% csrf_token %}
-    <input type="hidden" name="article" value="{{ post.pk }}">
+    <!-- <input type="hidden" name="article" value="{{ post.pk }}">
 
     <div class="field" class="field">
 
@@ -25,7 +25,9 @@
 
         <label for="comment_message">message</label>
         <textarea id="comment_message" name="comment_message"></textarea>
-    </div>
+    </div> -->
+
+                {{ form.as_p }}
 
     <div class="field">
 

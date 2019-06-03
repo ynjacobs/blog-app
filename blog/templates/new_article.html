@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>create new article</h2>
+
+
+<ul>
+    {% for article in new_article.articles.all %}
+        <li>
+           
+            <p>{{ article.title }}</p>
+            <p>{{ article.body }}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'create_article' %}" method="post">
+    {% csrf_token %}
+    
+
+                {{ form.as_p }}
+
+    <div class="field">
+
+        <button type="submit">
+            <span>create article</span>
+        </button>
+    </div>
+</form>
+
+
+<ul>
+    {% for article in new_article.articles.all %}
+
+    <li>{{ article.body }}</li>
+    
+
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

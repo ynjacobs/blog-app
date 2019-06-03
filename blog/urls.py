@@ -23,6 +23,9 @@ urlpatterns = [
     path('home/', home_page),
     path('admin/', admin.site.urls),
     path('home/<int:id>', post_details, name='post_details'),
-    path('comments/new', create_comment, name='create_comment'),
+    path('home/<int:id>', post_article, name='post_article'),
+    path('create_comment/', create_comment, name='create_comment'),
+    path('create_article/', create_new_article, name='create_article'),
+    path('accounts/signup', signup, name='signup')
 
 ]
