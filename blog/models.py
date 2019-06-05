@@ -5,8 +5,12 @@ from django.core.validators import MaxLengthValidator, MinLengthValidator
 from datetime import datetime, date
 from pytz import timezone
 from django.core.exceptions import ValidationError
+from django.forms import CharField, PasswordInput, Form
+from django.contrib.auth.models import User
 
-
+class LoginForm(Form):
+    username = CharField(label="User Name", max_length=64)
+    password = CharField(widget=PasswordInput())
          
 
 class Article(models.Model):
@@ -15,6 +19,7 @@ class Article(models.Model):
    draft = models.BooleanField(default=True)
    published_date = models.DateField(blank=True, null=True)
    author = models.CharField(max_length=255)
+   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name= 'articles')
 
 
 class Comment(models.Model):

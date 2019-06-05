@@ -18,12 +18,16 @@
 </ul> -->
 {% for article in articles %}
 
+
+
   <a href="{% url 'post_details' id=article.pk %}">
+      
     <p>
       <h2>{{ article.title }}</h2>
       {{ article.body }}
-
-    </p>
+     </p>
+     {{ article.user }}
+    
   </a>
 
 {% endfor %}

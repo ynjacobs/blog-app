@@ -8,6 +8,13 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 </head>
 <body>
+                {% if request.user.is_authenticated %}
+                <!-- display link to log out -->
+                <a href= "{% url 'logout' %}"> Logout </a>
+              {% else %}
+                <!-- display link to login page -->
+                <a href= "{% url 'login' %}"> Login </a>
+              {% endif %}
         
     {% block content %}
       {% endblock %}

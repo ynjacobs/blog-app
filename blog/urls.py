@@ -26,6 +26,10 @@ urlpatterns = [
     path('home/<int:id>', post_article, name='post_article'),
     path('create_comment/', create_comment, name='create_comment'),
     path('create_article/', create_new_article, name='create_article'),
-    path('accounts/signup', signup, name='signup')
+    path('accounts/signup', signup, name='signup'),
+    path('login/', login_view, name="login"),
+    path('logout/', logout_view, name="logout"),
+    path('signup/', signup, name='signup'),
+    path('home/edit/<int:id>', edit_article, name='edit_article'),
 
 ]

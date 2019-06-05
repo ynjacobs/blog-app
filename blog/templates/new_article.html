@@ -32,6 +32,8 @@
 <ul>
     {% for article in new_article.articles.all %}
 
+    {{ instance.user }}
+
     <li>{{ article.body }}</li>
     
 
