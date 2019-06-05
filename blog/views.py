@@ -162,7 +162,6 @@ def edit_article(request, id):
     article = get_object_or_404(Article, id=id, user=request.user.pk)
     article_form = ArticleForm(request.POST, instance=article)
 
-    
     if article_form.is_valid():
         article_form.save()
         return redirect('post_details', id=id) 
@@ -172,4 +171,3 @@ def edit_article(request, id):
             'article.id': id,
             'error_msg': 'You have invalid form, try again!'
         })
-    

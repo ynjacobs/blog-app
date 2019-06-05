@@ -29,6 +29,14 @@
      {{ article.user }}
     
   </a>
+  <p>
+
+      {% if request.user == article.user %}
+              <span>
+                      <a href="{% url 'edit_article' id=article.pk %}">Edit</a>
+              </span>
+      {% endif %}
+</p>
 
 {% endfor %}
 
